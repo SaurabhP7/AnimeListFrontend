@@ -1,6 +1,6 @@
 import React , { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addComment,intializeBlogs } from '../reducers/blogReducer'
+import { addComment } from '../reducers/blogReducer'
 import { Button , TextField } from '@mui/material'
 
 const CommentForm =({ blog }) => {
@@ -19,7 +19,6 @@ const CommentForm =({ blog }) => {
       user:blog.user.id
     }
     dispatch(addComment(updatedBlog))
-    dispatch(intializeBlogs())
   }
 
   return(

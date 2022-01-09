@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Notification from './Notification'
 
 import loginService from '../services/login'
 import storage from '../utils/storage'
 
 import { useDispatch } from 'react-redux'
-import { setUserDetail } from '../reducers/userReducer'
+import { login } from '../reducers/userReducer'
 import { showNotification } from '../reducers/notificationReducer'
-import { useHistory } from 'react-router-dom'
 import { TextField,Button,Card } from '@mui/material'
 
-const Login = ({ setLoggedUser,username,password,setUsername,setPassword }) => {
+const Login = () => {
+
+  const [username,setUsername]=useState('')
+  const [password, setPassword]=useState('')
 
   const dispatch=useDispatch()
-  const history=useHistory()
 
   const notifyWith =(message,type='success') => {
     dispatch(showNotification(message,type))
@@ -25,13 +26,11 @@ const Login = ({ setLoggedUser,username,password,setUsername,setPassword }) => {
 
     try{
       const user=await loginService.login({ username, password })
-      dispatch(setUserDetail(user))
       setUsername('')
       setPassword('')
+      dispatch(login(user))
       notifyWith(`${user.name} welcome back!`)
       storage.saveUser(user)
-      setLoggedUser(user.name)
-      history.push('/')
     }
     catch(exception){
       notifyWith('wrong username/password','error')
@@ -63,8 +62,7 @@ const Login = ({ setLoggedUser,username,password,setUsername,setPassword }) => {
               onChange={({ target }) => setPassword(target.value)} />
           </div>
           <div style={{ marginTop:'30px' }}>
-            <Button className="buttonColor" size="small" variant="contained" type="submit" color="primary">login</Button>
-
+            <Button size="small" variant="contained" type="submit" color="primary">login</Button>
           </div>
         </form>
       </Card>

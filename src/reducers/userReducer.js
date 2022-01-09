@@ -1,13 +1,13 @@
-const userReducer=(state={},action) => {
+const userReducer=(state=null,action) => {
 
   console.log('ACTION',action.type)
 
   switch(action.type){
-  case 'SET_USER':{
-    return action.data
+  case 'LOGIN':{
+    return action.payload
   }
 
-  case 'REMOVE_USER':{
+  case 'LOGOUT':{
     return null
   }
 
@@ -16,22 +16,17 @@ const userReducer=(state={},action) => {
   }
 }
 
-export const setUserDetail=(user) => {
+export const login=(user) => {
   return async dispatch => {
     dispatch({
-      type:'SET_USER',
-      data:user
+      type:'LOGIN',
+      payload:user
     })
   }
 }
 
-export const removeUser=() => {
-  return async dispatch => {
-    dispatch({
-      type:'REMOVE_USER',
-      data:null
-    })
-  }
-}
+export const logout=() => (
+  { type:'LOGOUT' }
+)
 
 export default userReducer

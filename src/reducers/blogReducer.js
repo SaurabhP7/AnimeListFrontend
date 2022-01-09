@@ -38,12 +38,12 @@ const blogReducer=(state=[],action) => {
   }
 }
 
-export const intializeBlogs=() => {
+export const initializeBlogs = () => {
   return async dispatch => {
-    const blogs=await blogService.getAll()
+    const data = await blogService.getAll()
     dispatch({
-      type:'INIT_BLOGS',
-      data:blogs
+      type: 'INIT',
+      data
     })
   }
 }
