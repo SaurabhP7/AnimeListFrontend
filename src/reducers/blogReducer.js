@@ -42,7 +42,7 @@ export const initializeBlogs = () => {
   return async dispatch => {
     const data = await blogService.getAll()
     dispatch({
-      type: 'INIT',
+      type: 'INIT_BLOGS',
       data
     })
   }

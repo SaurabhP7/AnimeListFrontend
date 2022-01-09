@@ -11,8 +11,7 @@ import { List, ListItem, Link, Divider } from '@mui/material'
 const BlogApp = () => {
 
   const dispatch=useDispatch()
-  const blogs=useSelector(state => state.blogs).sort((b1,b2) => b2.likes - b1.likes)
-
+  const blogs=useSelector(state => state.blogs)
   const notifyWith =(message,type='success') => {
     dispatch(showNotification(message,type))
   }
