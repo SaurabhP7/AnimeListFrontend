@@ -6,7 +6,7 @@ import { removeParticularBlog,increaseLikesOfBlog } from '../reducers/blogReduce
 import CommentForm from './CommentForm'
 import { Button } from '@mui/material'
 
-const BlogDetails=({ loggedUser }) => {
+const BlogDetails=() => {
 
   const blogId=useParams().id
   const blog=useSelector(state => state.blogs.find(b => b.id===blogId))
@@ -31,24 +31,16 @@ const BlogDetails=({ loggedUser }) => {
     <div>
       <h2>Blogs</h2>
       <div>
-        {loggedUser?
-          <div>
-            <div><h2>{blog.title}</h2></div>
-            <div>{blog.author}</div>
-            <div>likes {blog.likes} <Button size="small" variant="outlined" sx={{ fontSize:10,padding:'2px 2px' }} color="primary" onClick={() => increaseLikesOf(blog.id)}>like</Button></div>
-            <div>{blog.url}</div>
-            {user.username===blog.author?
-              <Button size="small" variant="outlined" color="primary" onClick={deleteBlog}>delete</Button>
-              :null}
-          </div>
-          :
-          <div>
-            <div><h2>{blog.title}</h2></div>
-            <div>{blog.author}</div>
-            <div>likes {blog.likes} <Button size="small" variant="outlined" color="primary" onClick={() => increaseLikesOf(blog)}>like</Button></div>
-            <div>{blog.url}</div>
-          </div>
-        }
+        <div>
+          <div><h2>{blog.title}</h2></div>
+          <div>{blog.author}</div>
+          <div>likes {blog.likes} <Button size="small" variant="outlined" sx={{ fontSize:10,padding:'2px 2px' }} color="primary" onClick={() => increaseLikesOf(blog)}>like</Button></div>
+          <div>{blog.url}</div>
+          {user.username===blog.author?
+            <Button size="small" variant="outlined" color="primary" onClick={deleteBlog}>delete</Button>
+            :null}
+        </div>
+
         <div>
           <h3>Comments</h3>
           <CommentForm blog={blog}/>

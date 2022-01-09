@@ -18,7 +18,7 @@ import { Container, AppBar, Toolbar, IconButton, Button } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import './App.css'
 
-const theme1 =createTheme({
+const theme1=createTheme({
   palette: {
     primary: {
       main: '#663c53'
@@ -103,7 +103,7 @@ const App=() => {
                   <Users />
                 </Route>
                 <Route path="/blogs/:id">
-                  <BlogDetails loggedUser={user} />
+                  <BlogDetails />
                 </Route>
                 <Route path="/">
                   <BlogApp />

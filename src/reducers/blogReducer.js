@@ -75,7 +75,7 @@ export const removeParticularBlog=(id) => {
 
 export const increaseLikesOfBlog=(blog) => {
   return async dispatch => {
-    const toLike={ ...blog,likes:blog.likes+1 }
+    const toLike={ ...blog,likes:blog.likes+1,user:blog.user.id }
     const data=await blogService.update(toLike)
     dispatch({
       type:'INCREASE_LIKES',
