@@ -56,26 +56,28 @@ const App=() => {
     <div>
       <Router>
         <ThemeProvider theme={theme1}>
-          <AppBar position="static" color="primary">
-            <Toolbar>
-              <IconButton edge="start" color="inherit" aria-label="menu">
+          <div>
+            <AppBar position="fixed" color="primary">
+              <Toolbar>
+                <IconButton edge="start" color="inherit" aria-label="menu">
 
-              </IconButton>
-              <Button color="inherit" component={Link} to="/blogs">
+                </IconButton>
+                <Button color="inherit" component={Link} to="/blogs">
                 Blogs
-              </Button>
-              <Button color="inherit" component={Link} to="/users">
+                </Button>
+                <Button color="inherit" component={Link} to="/users">
                 Users
-              </Button>
-              {loggedUser
-                ? <span>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></span>
-                : <Button color="inherit" component={Link} to="/login">Login</Button>
-              }
-            </Toolbar>
-          </AppBar>
+                </Button>
+                {loggedUser
+                  ? <span>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></span>
+                  : <Button color="inherit" component={Link} to="/login">Login</Button>
+                }
+              </Toolbar>
+            </AppBar>
+          </div>
 
           <Container>
-            <div>
+            <div style={{ marginTop:80 }}>
               <Switch>
                 <Route path="/login">
                   <Login setLoggedUser={setLoggedUser} username={username} password={password} setUsername={setUsername} setPassword={setPassword} />

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-
-import Blog from './Blog'
 import Togglable from './Togglable'
 import Notification from './Notification'
 
@@ -11,12 +9,12 @@ import { intializeBlogs,createNewBlog } from '../reducers/blogReducer'
 import { setUserDetail } from '../reducers/userReducer'
 import { showNotification } from '../reducers/notificationReducer'
 
-import { List } from '@mui/material'
+import { List, ListItem, Link, Divider } from '@mui/material'
 
 const BlogApp = () => {
 
   const dispatch=useDispatch()
-  const blogs=useSelector(state => state.blogs)
+  const blogs=useSelector(state => state.blogs).sort((b1,b2) => b2.likes - b1.likes)
   const user=useSelector(state => state.userDetail)
   useEffect(() => {
     dispatch(intializeBlogs())
@@ -36,10 +34,6 @@ const BlogApp = () => {
     notifyWith(`${blogObject.title} is created`)
   }
 
-  const byLikes=(b1,b2) => {
-    b2.likes-b1.likes
-  }
-
   return (
     <div>
       <h2>Blogs</h2>
@@ -48,11 +42,13 @@ const BlogApp = () => {
       <div style={{ marginTop:'20px' }}>
         <List disablePadding>
           {
-            blogs.sort(byLikes).map(blog =>
-              <Blog
-                key={blog.id}
-                blog={blog}
-              />
+            blogs.map(blog =>
+              <div key={blog.id}>
+                <ListItem>
+                  <Link href={`/blogs/${blog.id}`} underline="hover" >{blog.title}</Link>
+                </ListItem>
+                <Divider />
+              </div>
             )
           }
         </List>
