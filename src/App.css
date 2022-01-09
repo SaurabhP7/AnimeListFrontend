@@ -1,0 +1,24 @@
+html{
+	min-height: 100%;
+    overflow-y: scroll;
+	background: linear-gradient(90deg, hsla(298, 68%, 90%, 1) 0%, hsla(30, 82%, 91%, 1) 100%);
+}
+
+body {
+  font-family: 'Roboto',sans-serif;
+  min-height: 100%;
+}
+
+.loginCard{
+	text-align: center;
+	padding-bottom: 30px;
+	padding-top: 10px;
+	width: 400px;
+	justify-content: center;
+
+}
+
+a:-webkit-any-link {
+	text-decoration: none;
+	color:inherit;
+}
