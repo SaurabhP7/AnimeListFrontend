@@ -27,9 +27,9 @@ const blogReducer=(state=[],action) => {
   }
 
   case 'ADD_COMMENT': {
-    const changedBlog=action.data.blog
+    const changedBlog=action.data
     return state.map(blog =>
-      blog!==action.data.blog?blog:changedBlog
+      blog!==changedBlog.id?blog:changedBlog
     )
   }
 
@@ -86,12 +86,11 @@ export const increaseLikesOfBlog=(blog) => {
 
 export const addComment=(blog) => {
   return async dispatch => {
-    await blogService.update(blog)
+    const data=await blogService.update(blog)
     dispatch({
       type:'ADD_COMMENT',
-      data:{ blog }
+      data
     })
-
   }
 }
 

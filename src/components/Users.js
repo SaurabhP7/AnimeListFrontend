@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import userService from '../services/users'
+import React from 'react'
 import { Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { useSelector } from 'react-redux'
 
 const Users=() => {
 
-  const [users,setUsers]=useState([])
-
-  useEffect(() => {
-    userService.getAll().then((users) => {
-      setUsers(users)
-    })
-  },[])
+  const users=useSelector(state => state.users)
 
   return(
     <div>

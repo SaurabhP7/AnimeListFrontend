@@ -2,23 +2,27 @@ import React , { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addComment } from '../reducers/blogReducer'
 import { Button , TextField } from '@mui/material'
+import { useHistory } from 'react-router'
 
 const CommentForm =({ blog }) => {
 
   const [comment,setComment]=useState('')
   const dispatch=useDispatch()
+  const history=useHistory()
 
   const handleCommentChange=(event) => {
     setComment(event.target.value)
   }
 
   const submitComment=(blog,comment) => {
+    const newComments=blog.comments.concat(comment)
     const updatedBlog={
       ...blog,
-      comments:blog.comments.concat(comment),
+      comments:newComments,
       user:blog.user.id
     }
     dispatch(addComment(updatedBlog))
+    history.push(`/blogs/${updatedBlog.id}`)
   }
 
   return(
