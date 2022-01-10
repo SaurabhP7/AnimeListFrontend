@@ -2,7 +2,8 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { List, ListItem, Divider, Link } from '@mui/material'
+import { ListItem, Divider, List } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const User=() => {
   const userId=useParams().id
@@ -16,7 +17,7 @@ const User=() => {
         {user.blogs.map(blog =>
           <div key={blog.id}>
             <ListItem key={blog.id}>
-              <Link href={`/blogs/${blog.id}`} underline="hover" >{blog.title}</Link>
+              <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
             </ListItem>
             <Divider />
           </div>

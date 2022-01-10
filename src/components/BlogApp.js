@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createNewBlog } from '../reducers/blogReducer'
 import { showNotification } from '../reducers/notificationReducer'
 
-import { List, ListItem, Link, Divider } from '@mui/material'
+import { List, ListItem, Divider } from '@mui/material'
+
+import { Link } from 'react-router-dom'
 
 const BlogApp = () => {
 
@@ -32,7 +34,7 @@ const BlogApp = () => {
             blogs.map(blog =>
               <div key={blog.id}>
                 <ListItem>
-                  <Link href={`/blogs/${blog.id}`} underline="hover" >{blog.title}</Link>
+                  <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
                 </ListItem>
                 <Divider />
               </div>

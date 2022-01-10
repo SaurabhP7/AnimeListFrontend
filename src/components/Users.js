@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Users=() => {
 
@@ -19,7 +20,7 @@ const Users=() => {
         <TableBody>
           {users.map((user) => (
             <TableRow key={user.id} >
-              <TableCell><Link underline="hover" href={`/users/${user.id}`}>{user.name}</Link></TableCell>
+              <TableCell><Link to={`/users/${user.id}`}>{user.name}</Link></TableCell>
               <TableCell>{user.blogs.length}</TableCell>
             </TableRow>
           ))}
