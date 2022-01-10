@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router'
 
-import { removeParticularBlog,increaseLikesOfBlog } from '../reducers/blogReducer'
+import { removeParticularBlog,increaseLikesOfBlog,commentBlog } from '../reducers/blogReducer'
 import CommentForm from './CommentForm'
 import { Button } from '@mui/material'
 
@@ -27,6 +27,10 @@ const BlogDetails=() => {
     }
   }
 
+  const handleComment=(comment) => {
+    dispatch(commentBlog( blogId , comment))
+  }
+
   return(
     <div>
       <h2>Blogs</h2>
@@ -43,9 +47,9 @@ const BlogDetails=() => {
 
         <div>
           <h3>Comments</h3>
-          <CommentForm blog={blog}/>
+          <CommentForm handleComment={handleComment}/>
           <ul>
-            {blog.comments.map((comment) => {
+            {blog.comments.length===0 ? null: blog.comments.map((comment) => {
               return(<li key={comment}>{comment}</li>)
             })}
           </ul>
