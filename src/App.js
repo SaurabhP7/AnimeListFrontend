@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { Container, AppBar, Toolbar, IconButton, Button } from '@mui/material'
+import { Container, AppBar, Toolbar, Button, Box } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import './App.css'
 
@@ -76,18 +76,19 @@ const App=() => {
           <div>
             <AppBar position="fixed" color="primary">
               <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="menu">
-
-                </IconButton>
-                <Button color="inherit" component={Link} to="/">
+                <Box sx={{ flexGrow: 0.1 }}>
+                  <Button color="inherit" component={Link} to="/">
                 Blogs
-                </Button>
-                <Button color="inherit" component={Link} to="/users">
+                  </Button>
+                </Box>
+                <Box sx={{ flexGrow: 10 }} >
+                  <Button color="inherit" component={Link} to="/users">
                 Users
-                </Button>
+                  </Button>
+                </Box>
                 {user
-                  ? <span>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></span>
-                  : <Button color="inherit" component={Link} to="/login">Login</Button>
+                  ? <Box sx={{ flexGrow: 0 }}>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></Box>
+                  : <Box sx={{ flexGrow: 0 }}><Button color="inherit" component={Link} to="/login">Login</Button></Box>
                 }
               </Toolbar>
             </AppBar>
