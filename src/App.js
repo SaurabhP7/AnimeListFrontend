@@ -71,7 +71,6 @@ const App=() => {
   return(
     <div>
       <Router>
-        {console.log('in router')}
         <ThemeProvider theme={theme1}>
           <div>
             <AppBar position="fixed" color="primary">
