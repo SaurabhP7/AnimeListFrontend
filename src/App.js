@@ -10,9 +10,9 @@ import { initializeUsers } from './reducers/usersReducer'
 import { initializeBlogs } from './reducers/blogReducer'
 import storage from './utils/storage'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import { Container, AppBar, Toolbar, Button, Box } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -58,6 +58,7 @@ const App=() => {
   const handleLogout=() => {
     dispatch(logout())
     storage.logoutUser()
+    {(!user)?<Redirect to="/" />:null}
   }
 
   if(!user){
@@ -87,7 +88,7 @@ const App=() => {
                 </Box>
                 {user
                   ? <Box sx={{ flexGrow: 0 }}>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></Box>
-                  : <Box sx={{ flexGrow: 0 }}><Button color="inherit" component={Link} to="/login">Login</Button></Box>
+                  : <Box sx={{ flexGrow: 0 }}><Button color="inherit" component={Link} to="/">Login</Button></Box>
                 }
               </Toolbar>
             </AppBar>
