@@ -87,7 +87,7 @@ const App=() => {
                   </Button>
                 </Box>
                 {user
-                  ? <Box sx={{ flexGrow: 0 }}>{user.name} <Button color="inherit" onClick={handleLogout}>logout</Button></Box>
+                  ? <Box sx={{ flexGrow: 0 }}>{user.name} <Button color="inherit" onClick={handleLogout}><Link to="/">logout</Link></Button></Box>
                   : <Box sx={{ flexGrow: 0 }}><Button color="inherit" component={Link} to="/">Login</Button></Box>
                 }
               </Toolbar>
