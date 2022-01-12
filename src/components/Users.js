@@ -1,9 +1,8 @@
 import React from 'react'
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow,Card } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row ,Col } from 'react-bootstrap'
-
 import user from '../assests/img/user.png'
 
 const Users=() => {
@@ -16,7 +15,9 @@ const Users=() => {
       <Row style={{ marginTop:'30px' }}>
         <Col>
           <div style={{ marginLeft:'80px' }}>
-            <img src={user} width="300" />
+            <Card style={{ width:'300px' }} elevation={6}>
+              <img src={user} width="300" />
+            </Card>
           </div>
         </Col>
         <Col>
