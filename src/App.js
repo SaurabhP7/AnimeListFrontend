@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import BlogApp from './components/BlogApp'
+import AnimeApp from './components/AnimeApp'
 import Users from './components/Users'
 import User from './components/User'
-import BlogDetails from './components/BlogDetails'
+import AnimeDetails from './components/AnimeDetails'
 import Login from './components/Login'
 
 import { login,logout } from './reducers/userReducer'
 import { initializeUsers } from './reducers/usersReducer'
-import { initializeBlogs } from './reducers/blogReducer'
+import { initializeAnimes } from './reducers/animeReducer'
 import storage from './utils/storage'
 
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
@@ -47,7 +47,7 @@ const App=() => {
   const dispatch=useDispatch()
 
   useEffect(() => {
-    dispatch(initializeBlogs())
+    dispatch(initializeAnimes())
     dispatch(initializeUsers())
     const user = storage.loadUser()
     if (user) {
@@ -78,7 +78,7 @@ const App=() => {
               <Toolbar>
                 <Box sx={{ flexGrow: 0.1 }}>
                   <Button color="inherit" component={Link} to="/">
-                Blogs
+                Animes
                   </Button>
                 </Box>
                 <Box sx={{ flexGrow: 10 }} >
@@ -103,11 +103,11 @@ const App=() => {
                 <Route path="/users">
                   <Users />
                 </Route>
-                <Route path="/blogs/:id">
-                  <BlogDetails />
+                <Route path="/animes/:id">
+                  <AnimeDetails />
                 </Route>
                 <Route path="/">
-                  <BlogApp />
+                  <AnimeApp />
                 </Route>
               </Switch>
             </div>

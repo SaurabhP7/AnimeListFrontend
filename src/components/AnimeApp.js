@@ -3,38 +3,38 @@ import Togglable from './Togglable'
 import Notification from './Notification'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { createNewBlog } from '../reducers/blogReducer'
+import { createNewAnime } from '../reducers/animeReducer'
 import { showNotification } from '../reducers/notificationReducer'
 
 import { List, ListItem, Divider } from '@mui/material'
 
 import { Link } from 'react-router-dom'
 
-const BlogApp = () => {
+const AnimeApp = () => {
 
   const dispatch=useDispatch()
-  const blogs=useSelector(state => state.blogs)
+  const animes=useSelector(state => state.animes)
   const notifyWith =(message,type='success') => {
     dispatch(showNotification(message,type))
   }
 
-  const createBlog=(blogObject) => {
-    dispatch(createNewBlog(blogObject))
-    notifyWith(`${blogObject.title} is created`)
+  const createAnime=(animeObject) => {
+    dispatch(createNewAnime(animeObject))
+    notifyWith(`${animeObject.title} is created`)
   }
 
   return (
     <div>
-      <h2>Blogs</h2>
+      <h2>Animes</h2>
       <Notification />
-      <Togglable createBlog={createBlog} />
+      <Togglable createAnime={createAnime} />
       <div style={{ marginTop:'20px' }}>
         <List disablePadding>
           {
-            blogs.map(blog =>
-              <div key={blog.id}>
+            animes.map(anime =>
+              <div key={anime.id}>
                 <ListItem>
-                  <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                  <Link to={`/animes/${anime.id}`}>{anime.title}</Link>
                 </ListItem>
                 <Divider />
               </div>
@@ -46,4 +46,4 @@ const BlogApp = () => {
   )
 }
 
-export default BlogApp
+export default AnimeApp

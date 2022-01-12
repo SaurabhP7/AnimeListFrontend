@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/blogs'
+const baseUrl = '/api/animes'
 import storage from '../utils/storage'
 
 const getConfig=() => {
@@ -15,13 +15,13 @@ const getAll=() => {
   return request.then(response => response.data)
 }
 
-const create=blog => {
-  const request=axios.post(baseUrl,blog,getConfig())
+const create=anime => {
+  const request=axios.post(baseUrl,anime,getConfig())
   return request.then(response => response.data)
 }
 
-const update = (blog) => {
-  const request = axios.put(`${baseUrl}/${blog.id}`, blog, getConfig())
+const update = (anime) => {
+  const request = axios.put(`${baseUrl}/${anime.id}`, anime, getConfig())
   return request.then(response => response.data)
 }
 

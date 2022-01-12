@@ -1,4 +1,4 @@
-const storageKey='loggedBlogAppUser'
+const storageKey='loggedAnimeAppUser'
 
 const saveUser=(user) =>
   localStorage.setItem(storageKey,JSON.stringify(user))

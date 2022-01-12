@@ -1,4 +1,4 @@
-describe('Blog app', function() {
+describe('Anime app', function() {
 
   beforeEach(function() {
     cy.request('POST', 'http://localhost:3003/api/testing/reset')
@@ -37,12 +37,12 @@ describe('Blog app', function() {
       cy.login({ username:'yourgoodfriendsp', password:'secret' })
     })
 
-    it('A blog can be created and liked and deleted', function() {
-      cy.contains('create new blog').click()
+    it('A anime can be created and liked and deleted', function() {
+      cy.contains('create new anime').click()
       cy.get('#title').type('Young Dumb and Broke')
       cy.get('#author').type('yourgoodfriendsp')
       cy.get('#url').type('www.amazon.in')
-      cy.get('#create-blog-button').click()
+      cy.get('#create-anime-button').click()
       cy.contains('0')
       cy.contains('like').click()
       cy.contains('1')

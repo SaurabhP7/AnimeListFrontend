@@ -14,14 +14,14 @@ const Users=() => {
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell>Number of blogs created</TableCell>
+            <TableCell>Number of animes created</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {users.map((user) => (
             <TableRow key={user.id} >
               <TableCell><Link to={`/users/${user.id}`}>{user.name}</Link></TableCell>
-              <TableCell>{user.blogs.length}</TableCell>
+              <TableCell>{user.animes.length}</TableCell>
             </TableRow>
           ))}
         </TableBody>

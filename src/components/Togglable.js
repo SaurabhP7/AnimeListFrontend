@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import BlogForm from './BlogForm'
+import AnimeForm from './AnimeForm'
 import { Button } from '@mui/material'
 
-const Togglable=({ createBlog }) => {
+const Togglable=({ createAnime }) => {
 
   const [visibile,setVisible]=useState(false)
 
@@ -16,11 +16,11 @@ const Togglable=({ createBlog }) => {
   return(
     <div>
       <div style={hideWhenVisible}>
-        <Button size="small" variant="outlined" color="primary" onClick={toggleVisibilty}>create new blog</Button>
+        <Button size="small" variant="outlined" color="primary" onClick={toggleVisibilty}>create new anime</Button>
       </div>
 
       <div style={showWhenVisible}>
-        <BlogForm createBlog={createBlog} toggle={setVisible} />
+        <AnimeForm createAnime={createAnime} toggle={setVisible} />
       </div>
     </div>
   )

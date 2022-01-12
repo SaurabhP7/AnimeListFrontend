@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import { TextField, Button, Card } from '@mui/material'
 
-const BlogForm=({ createBlog, toggle }) => {
+const AnimeForm=({ createAnime, toggle }) => {
 
   const [newTitle,setNewTitle]=useState('')
   const [newAuthor, setNewAuthor]=useState('')
@@ -19,17 +19,17 @@ const BlogForm=({ createBlog, toggle }) => {
     setNewUrl(event.target.value)
   }
 
-  const addBlog=(event) => {
+  const addAnime=(event) => {
 
     event.preventDefault()
 
-    const newBlog={
+    const newAnime={
       title:newTitle,
       author:newAuthor,
       url:newUrl
     }
 
-    createBlog(newBlog)
+    createAnime(newAnime)
     toggle()
     setNewTitle('')
     setNewAuthor('')
@@ -39,8 +39,8 @@ const BlogForm=({ createBlog, toggle }) => {
   return(
     <div style={{ justifyContent:'center',display:'flex' }}>
       <Card elevation={6} className="loginCard">
-        <h2>Create New Blog</h2>
-        <form onSubmit={addBlog}>
+        <h2>Create New Anime</h2>
+        <form onSubmit={addAnime}>
           <div>
             <TextField
               label="Title"
@@ -72,4 +72,4 @@ const BlogForm=({ createBlog, toggle }) => {
   )
 }
 
-export default BlogForm
+export default AnimeForm

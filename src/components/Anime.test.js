@@ -1,20 +1,20 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import Blog from './Blog'
+import Anime from './Anime'
 
 test('has only title and author',() => {
 
-  const blog={
+  const anime={
     title:'Hello World',
     author:'Every Programmer'
   }
 
   const component=render(
-    <Blog blog={blog} />
+    <Anime anime={anime} />
   )
 
-  const div=component.container.querySelector('.blogTest')
+  const div=component.container.querySelector('.animeTest')
 
   expect(div).toHaveTextContent(
     'Hello World Every Programmer'

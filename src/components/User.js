@@ -12,12 +12,12 @@ const User=() => {
   return(
     <div>
       <h2>{user.name}</h2>
-      <h3>added {user.blogs.length===0?0:null} blogs</h3>
+      <h3>added {user.animes.length===0?0:null} animes</h3>
       <List>
-        {user.blogs.map(blog =>
-          <div key={blog.id}>
-            <ListItem key={blog.id}>
-              <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+        {user.animes.map(anime =>
+          <div key={anime.id}>
+            <ListItem key={anime.id}>
+              <Link to={`/animes/${anime.id}`}>{anime.title}</Link>
             </ListItem>
             <Divider />
           </div>
