@@ -33,10 +33,10 @@ const AnimeDetails=() => {
 
   return(
     <div>
-      <h2>Animes</h2>
+      <h4>Animes</h4>
       <div>
-        <div>
-          <div><h2>{anime.title}</h2></div>
+        <div style={{ marginTop:'20px' }}>
+          <div><h4>{anime.title}</h4></div>
           <div>{anime.author}</div>
           <div>likes {anime.likes} <Button size="small" variant="outlined" sx={{ fontSize:10,padding:'2px 2px' }} color="primary" onClick={() => increaseLikesOf(anime)}>like</Button></div>
           <div>{anime.url}</div>
@@ -45,14 +45,16 @@ const AnimeDetails=() => {
             :null}
         </div>
 
-        <div>
-          <h3>Comments</h3>
+        <div style={{ marginTop:'20px' }}>
+          <h4>Comments</h4>
           <CommentForm handleComment={handleComment}/>
-          <ul>
-            {anime.comments.length===0 ? null: anime.comments.map((comment) => {
-              return(<li key={comment}>{comment}</li>)
-            })}
-          </ul>
+          <div style={{ marginTop:'20px' }}>
+            <ul>
+              {anime.comments.length===0 ? null: anime.comments.map((comment) => {
+                return(<li key={comment}>{comment}</li>)
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

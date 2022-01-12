@@ -7,8 +7,10 @@ import { createNewAnime } from '../reducers/animeReducer'
 import { showNotification } from '../reducers/notificationReducer'
 
 import { List, ListItem, Divider } from '@mui/material'
-
+import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
+import mainPage from '../assests/img/japan.png'
 
 const AnimeApp = () => {
 
@@ -25,23 +27,30 @@ const AnimeApp = () => {
 
   return (
     <div>
-      <h2>Animes</h2>
+      <h4>Animes</h4>
       <Notification />
       <Togglable createAnime={createAnime} />
-      <div style={{ marginTop:'20px' }}>
-        <List disablePadding>
-          {
-            animes.map(anime =>
-              <div key={anime.id}>
-                <ListItem>
-                  <Link to={`/animes/${anime.id}`}>{anime.title}</Link>
-                </ListItem>
-                <Divider />
-              </div>
-            )
-          }
-        </List>
-      </div>
+      <Row>
+        <Col>
+          <div style={{ marginTop:'20px',justifyContent:'center' }} >
+            <List disablePadding>
+              {
+                animes.map(anime =>
+                  <div key={anime.id}>
+                    <ListItem>
+                      <Link to={`/animes/${anime.id}`}>{anime.title}</Link>
+                    </ListItem>
+                    <Divider />
+                  </div>
+                )
+              }
+            </List>
+          </div>
+        </Col>
+        <Col>
+          <div style={{ marginTop:'20px',justifyContent:'center',alignContent:'center',marginLeft:'80px' }} ><img src={mainPage} width='300' height='200' /></div>
+        </Col>
+      </Row>
     </div>
   )
 }

@@ -11,8 +11,8 @@ const User=() => {
   if(!user) return null
   return(
     <div>
-      <h2>{user.name}</h2>
-      <h3>added {user.animes.length===0?0:null} animes</h3>
+      <h4>{user.name}</h4>
+      <h4>added {user.animes.length===0?0:null} animes</h4>
       <List>
         {user.animes.map(anime =>
           <div key={anime.id}>

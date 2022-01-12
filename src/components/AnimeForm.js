@@ -39,7 +39,7 @@ const AnimeForm=({ createAnime, toggle }) => {
   return(
     <div style={{ justifyContent:'center',display:'flex' }}>
       <Card elevation={6} className="loginCard">
-        <h2>Create New Anime</h2>
+        <h4>Create New Anime</h4>
         <form onSubmit={addAnime}>
           <div>
             <TextField

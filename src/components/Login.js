@@ -41,7 +41,7 @@ const Login = () => {
   return(
     <div style={{ marginTop:'20px',justifyContent:'center',display:'flex',alignItems:'center', height: '100vh' }}>
       <Card elevation={10} className="loginCard">
-        <h2>Login</h2>
+        <h4>Login</h4>
 
         <Notification />
 

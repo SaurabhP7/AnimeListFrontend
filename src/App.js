@@ -63,14 +63,16 @@ const App=() => {
 
   if(!user){
     return(
-      <ThemeProvider theme={theme1}>
-        <Login />
-      </ThemeProvider>
+      <div className="appBackground">
+        <ThemeProvider theme={theme1}>
+          <Login />
+        </ThemeProvider>
+      </div>
     )
   }
 
   return(
-    <div>
+    <div className="appBackground">
       <Router>
         <ThemeProvider theme={theme1}>
           <div>
