@@ -14,7 +14,7 @@ const Users=() => {
       <h4>Users</h4>
       <Row style={{ marginTop:'30px' }}>
         <Col>
-          <div style={{ flex:'display', alignItems:'center' }}>
+          <div style={{ flex:'display', justifyContent:'center' }}>
             <Card style={{ width:'300px' }} elevation={6}>
               <img src={user} width="300" />
             </Card>
