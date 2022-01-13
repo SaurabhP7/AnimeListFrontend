@@ -48,7 +48,11 @@ const AnimeApp = () => {
           </div>
         </Col>
         <Col>
-          <div style={{ marginTop:'20px',justifyContent:'center',alignContent:'center',marginLeft:'80px' }} ><Card elevation={2} style={{ width:'300px', height:'200px' }} ><img src={mainPage} width='300' height='200' /></Card></div>
+          <div style={{ marginTop:'20px',display:'flex', justifyContent:'center', }} >
+            <Card elevation={2} style={{ width:'300px', height:'200px' }} >
+              <img src={mainPage} width='300' height='200' />
+            </Card>
+          </div>
         </Col>
       </Row>
     </div>
